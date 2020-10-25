@@ -23,6 +23,9 @@ void custom_delay(uint32_t delay)
 //! Task 2.2 - toggle the primary LED
 int toggle(int argc, char **argv)
 {
+    (void)argc;
+    (void)argv;
+
     for(int i=0; i<10; i++)
     {
         LED0_TOGGLE;
@@ -47,6 +50,9 @@ int toggle(int argc, char **argv)
 //! Turn on primary led
 int ledon(int argc, char **argv)
 {
+    (void)argc;
+    (void)argv;
+
     LED0_ON;
     custom_delay(DELAY_LONG);
 
@@ -56,6 +62,9 @@ int ledon(int argc, char **argv)
 //! Turn off primary led
 int ledoff(int argc, char **argv)
 {
+    (void)argc;
+    (void)argv;
+
     LED0_OFF;
     custom_delay(DELAY_LONG);
 
@@ -64,6 +73,9 @@ int ledoff(int argc, char **argv)
 
 int echo(int argc, char **argv)
 {
+    (void)argc;
+    (void)argv;
+
     //! Task 2.1 - Print all the arguments
     for(int i=1; i<argc; i++)
     	printf("%s ", argv[i]);
