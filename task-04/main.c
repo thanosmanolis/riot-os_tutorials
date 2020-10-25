@@ -9,7 +9,22 @@ char stack[THREAD_STACKSIZE_MAIN];
 
 void *thread_handler(void *arg)
 {
-    /* ... */
+    printf("Format: Hours:Minutes:Seconds:Milliseconds\n");
+    
+    while(1)
+    {
+        unsigned long long int timestamp;
+        timestamp = xtimer_now_usec();
+        
+        long milliseconds   = (long) (timestamp / 1000) % 1000;
+        long seconds    = (((long) (timestamp / 1000) - milliseconds)/1000)%60 ;
+        long minutes    = (((((long) (timestamp / 1000) - milliseconds)/1000) - seconds)/60) %60;
+        long hours      = ((((((long) (timestamp / 1000) - milliseconds)/1000) - seconds)/60) - minutes)/60;
+
+        printf("Time: %ld:%ld:%ld:%ld\n", hours, minutes, seconds, milliseconds);
+        xtimer_sleep(2);
+    }
+
     (void)arg;
     return NULL;
 }
